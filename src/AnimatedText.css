@@ -1,0 +1,40 @@
+@value tablet, desktop from './Variables.css';
+
+span {
+  display: inline-flex;
+  color: white;
+}
+
+.space {
+  display: block;
+}
+
+.text-root {
+  display: none;
+}
+
+.text-root-mobile {
+  font-size: 1em;
+  letter-spacing: 1em;
+  display: flex;
+  justify-content: center;
+  padding: 1em 0 0 0;
+}
+
+@media only screen and (min-width: tablet) {
+
+  .text-root-mobile {
+    display: none;
+  }
+
+  .text-root {
+    text-align: center;
+    padding: 1em 0 0 1em;
+    display: inline-flex;
+
+    span {
+      display: inline-flex;
+      color: white;
+    }
+  }
+}

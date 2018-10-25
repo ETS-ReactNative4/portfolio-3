@@ -1,0 +1,44 @@
+#waves {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  z-index: -1;
+}
+
+.groundWrapper {
+  overflow-x: hidden;
+}
+
+.waterBackground {
+  background: rgb(2,0,36);
+  background: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(0,0,0,1) 0%, rgba(135,224,253,1) 95%, rgba(135,224,253,1) 100%);
+  height: 200vh;
+  bottom: 0;
+  width: 100%;
+}
+
+.el {
+  background: #87e0fd;
+  background-color: #87e0fd;
+  color: #87e0fd;
+  flex-grow: 1;
+  height: 20vh;
+  padding: 0;
+  margin: 0;
+  justify-content: stretch;
+  outline: 10px solid #87e0fd;
+  z-index: -1;
+}
+
+.line {
+  border-top: 2em solid #002b36;
+  background-color: #87e0fd;
+  z-index: 1;
+  width: 1em;
+  bottom: 0;
+  position: absolute;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}

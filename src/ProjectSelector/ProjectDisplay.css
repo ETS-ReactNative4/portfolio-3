@@ -1,0 +1,43 @@
+.nameBar {
+  background-color: lightgrey;
+  padding: 2em 2em 1em 2em;
+}
+
+.name {
+  font-size: 3em;
+  color: black;
+}
+
+.mainDisplay {
+  background-color: white;
+  padding: 1em 5em 5em 2em;
+}
+
+.projectBox {
+  box-shadow: -7px 10px 10px #0006;
+}
+
+.tech {
+  color: black;
+  font-size: 1.2em;
+}
+
+.details {
+  color: black;
+}
+
+.footer {
+  position: absolute;
+  bottom: 2em;
+  width: auto;
+}
+
+.footer span {
+  margin-right: 4em;
+  text-decoration: none;
+}
+.footer span:hover {
+
+  color: purple;
+  transition: 1s;
+}

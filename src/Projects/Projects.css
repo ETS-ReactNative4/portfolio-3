@@ -1,0 +1,30 @@
+.projectSelectors {
+}
+
+.projectsRoot {
+  z-index: 1;
+  margin-top: 5em;
+}
+
+.projectRoot {
+  cursor: pointer;
+}
+
+.githubLogo {
+  position: absolute;
+  left: -39.6em;
+  height: 52em;
+  animation: spin 30s infinite linear;
+}
+
+@keyframes spin {
+    from {transform:rotate(0deg);}
+    to {transform:rotate(359deg);}
+}
+
+.projectDisplay {
+  position: absolute;
+  margin-top: 20em;
+  right: 0;
+  max-width: 50%;
+}
