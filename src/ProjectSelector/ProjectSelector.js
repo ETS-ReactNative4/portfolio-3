@@ -46,8 +46,9 @@ class ProjectSelector extends Component {
         selector: {
           animation: `.5s ease`,
           animationName: selectedAnim,
-          color: 'rgb(244, 244, 66)',
+          color: 'rgb(255, 209, 115)',
           opacity: 1,
+          transition: '.2s',
           fontSize: `${selectedSize}em`,
           textShadow: `-1px 2px 1px #0000004d`
         }

@@ -3,6 +3,7 @@ import Anime from 'react-anime';
 import anime from 'animejs'
 import './Ground.css'
 import Projects from './Projects/Projects';
+import Skills from './Skills/Skills';
 
 export class Ground extends Component {
 
@@ -47,6 +48,7 @@ export class Ground extends Component {
         </div>
         <div className="waterBackground">
           <Projects />
+          <Skills />
         </div>
       </div>
 

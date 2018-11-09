@@ -1,5 +1,15 @@
+@value tablet, desktop from '../Variables.css';
+
+
 .selector {
-  height: 3em;
-  margin-bottom: 1em;
   cursor: pointer;
+  margin-top: .5em;
+}
+
+@media only screen and (min-width: tablet) {
+  .selector {
+    height: 3em;
+    margin-bottom: 1em;
+    cursor: pointer;
+  }
 }

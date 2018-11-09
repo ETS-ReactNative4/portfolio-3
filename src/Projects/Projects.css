@@ -1,9 +1,24 @@
+@value tablet, desktop from '../Variables.css';
+
 .projectSelectors {
 }
 
+.desktop {
+  display: none;
+}
 .projectsRoot {
   z-index: 1;
-  margin-top: 5em;
+  padding-top: 0em;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 1em;
+  font-size: .7em;
+}
+
+.mobile {
+  width: 100%;
+  text-align: center;
+  padding-bottom: 1em;
 }
 
 .projectRoot {
@@ -11,10 +26,7 @@
 }
 
 .githubLogo {
-  position: absolute;
-  left: -39.6em;
-  height: 52em;
-  animation: spin 30s infinite linear;
+  display: none;
 }
 
 @keyframes spin {
@@ -24,7 +36,59 @@
 
 .projectDisplay {
   position: absolute;
-  margin-top: 20em;
   right: 0;
-  max-width: 50%;
+  max-width: 100%;
+  margin-top: 2em;
+}
+
+.circle {
+  display: none;
+}
+
+@media only screen and (min-width: tablet) {
+  .desktop {
+    display: block;
+  }
+  .projectsRoot {
+    z-index: 1;
+    padding-top: 5em;
+    font-size: 1em;
+  }
+
+  .projectRoot {
+    cursor: pointer;
+  }
+
+  .mobile {
+    display: none;
+  }
+
+  .circle {
+    display: block;
+  }
+
+  .githubLogo {
+    position: absolute;
+    left: -27em;
+    top: auto;
+    margin-top: 8em;
+    animation: spin 30s infinite linear;
+    transform-origin: 300px 300px;
+    display: block;
+  }
+
+  .projectDisplay {
+    position: absolute;
+    margin-top: 0em;
+    right: 0;
+    max-width: 40%;
+  }
+}
+
+@media only screen and (min-width: desktop) {
+  .projectDisplay {
+    position: absolute;
+    right: 0;
+    max-width: 55%;
+  }
 }

@@ -1,6 +1,14 @@
+@value tablet, desktop from '../Variables.css';
+
 .nameBar {
-  background-color: lightgrey;
+  background-color: rgb(255, 209, 115);
   padding: 2em 2em 1em 2em;
+  border-radius: 1em 0 0 0;
+}
+
+.video video{
+  max-height: 42em;
+  background-color: black;
 }
 
 .name {
@@ -9,12 +17,14 @@
 }
 
 .mainDisplay {
-  background-color: white;
+  background-color: #dcf4ff;
   padding: 1em 5em 5em 2em;
+  border-radius: 0 0 0 1em;
 }
 
 .projectBox {
-  box-shadow: -7px 10px 10px #0006;
+  box-shadow: -6px 5px 0px #0006;
+  border-radius: 1em 0 0 1em;
 }
 
 .tech {
@@ -30,6 +40,7 @@
   position: absolute;
   bottom: 2em;
   width: auto;
+  padding: .5em 0;
 }
 
 .footer span {
@@ -37,7 +48,9 @@
   text-decoration: none;
 }
 .footer span:hover {
-
-  color: purple;
   transition: 1s;
+}
+
+@media only screen and (min-width: tablet) {
+
 }

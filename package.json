@@ -2,6 +2,7 @@
   "name": "portfolio",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://jstein92.github.io/portfolio/",
   "dependencies": {
     "animejs": "^2.2.0",
     "feather-icons": "^4.7.3",
@@ -11,12 +12,19 @@
     "react-anime": "^2.1.0",
     "react-dom": "^16.4.2",
     "react-feather": "^1.1.4",
-    "react-scripts": "1.1.4"
+    "react-player": "^1.6.6",
+    "react-scripts": "1.1.4",
+    "react-svg": "^6.0.21",
+    "video-react": "^0.13.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "gh-pages -d build"
+  },
+  "devDependencies": {
+    "gh-pages": "^2.0.1"
   }
 }

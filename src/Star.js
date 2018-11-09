@@ -11,7 +11,6 @@ class Star extends Component {
   }
 
   render() {
-
     const randY = Math.floor(Math.random()*90)
     const randX = Math.floor(Math.random()*100)
 
