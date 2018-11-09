@@ -1,6 +1,13 @@
 {
-  "main.css": "static/css/main.1a5a2c32.css",
-  "main.css.map": "static/css/main.1a5a2c32.css.map",
-  "main.js": "static/js/main.44a073d3.js",
-  "main.js.map": "static/js/main.44a073d3.js.map"
+  "main.css": "static/css/main.8c4b8edd.css",
+  "main.css.map": "static/css/main.8c4b8edd.css.map",
+  "main.js": "static/js/main.1c64bac1.js",
+  "main.js.map": "static/js/main.1c64bac1.js.map",
+  "static\\media\\compass.svg": "static/media/compass.53c587f7.svg",
+  "static\\media\\crunch.mp4": "static/media/crunch.804c1d44.mp4",
+  "static\\media\\jonathan.svg": "static/media/jonathan.0f7533f2.svg",
+  "static\\media\\magento2pwa.mp4": "static/media/magento2pwa.ab9f51f0.mp4",
+  "static\\media\\overwatchstats.mp4": "static/media/overwatchstats.141c8721.mp4",
+  "static\\media\\thankyoumaam.mp4": "static/media/thankyoumaam.42eca7e1.mp4",
+  "static\\media\\wellness.mp4": "static/media/wellness.5426a805.mp4"
 }
