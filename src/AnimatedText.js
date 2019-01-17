@@ -25,16 +25,16 @@ class AnimatedText extends Component {
   }
 
   removeFromAnimating(i) {
-    var index = this.state.animations.indexOf(i);
+    const index = this.state.animations.indexOf(i);
     this.state.animations.splice(index, 1);
   }
 
   isAnimating(i) {
     if (this.state.animations.includes(i)) {
       return true;
-    } else {
+    } 
       return false;
-    }
+    
   }
 
   componentWillMount() {
@@ -48,7 +48,7 @@ class AnimatedText extends Component {
 
 
   handleHover(i) {
-    let isThisAnimating = this.isAnimating(i);
+    const isThisAnimating = this.isAnimating(i);
     if (!isThisAnimating) {
       anime({
         targets: `.text-root${this.props.id}${i}`,
@@ -80,9 +80,9 @@ class AnimatedText extends Component {
     const letters = this.props.text.split('').map(letter => {
       if (letter === ' ') {
         return <div>&nbsp;</div>
-      } else {
+      } 
         return <span>{letter}</span>
-      }
+      
     });
 
     if (this.state.showText ) {
@@ -110,9 +110,9 @@ class AnimatedText extends Component {
           </div>
       </div>
     )
-  } else {
+  } 
     return null;
-  }
+  
 }
 }
 

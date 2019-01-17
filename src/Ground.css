@@ -1,21 +1,51 @@
+@value tablet, desktop from './Variables.css';
+
 #waves {
   position: absolute;
   bottom: 0;
   width: 100%;
   display: flex;
-  z-index: -1;
+  z-index: 0;
 }
 
 .groundWrapper {
-  overflow-x: hidden;
+  overflow: hidden;
+}
+
+.contact {
+  position: absolute;
+  bottom: 4em;
+  color: white;
+  font-size: .6em;
+  width: 100%;
+  letter-spacing: 2px;
+  display: flex;
+  justify-content: space-around;
+  opacity: .8;
+}
+
+.contact a {
+  color: white;
+  text-decoration: none;
+}
+
+.contactDesktop {
+  display: none;
+  font-size: .8em;
+}
+
+.email, .phone, .github {
+  padding: .5em;
+  opacity: .6;
 }
 
 .waterBackground {
   background: rgb(2,0,36);
-  background: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(0,0,0,1) 0%, rgba(135,224,253,1) 95%, rgba(135,224,253,1) 100%);
-  height: 300vh;
+  background: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(0,0,0,1) 0%, rgba(135,224,253,1) 85%, rgba(135,224,253,1) 100%);
+  height: 200vh;
   bottom: 0;
   width: 100%;
+  position: relative;
 }
 
 .el {
@@ -41,4 +71,40 @@
   display: flex;
   justify-content: space-around;
   width: 100%;
+}
+@media only screen and (min-width: 500px) {
+  .waterBackground {
+    height: 220vh;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .waterBackground {
+    height: 230vh;
+  }
+}
+
+@media only screen and (min-width: 800px) {
+  .waterBackground {
+    height: 250vh;
+  }
+}
+
+@media only screen and (min-width: tablet) {
+  .waterBackground {
+    height: 260vh;
+  }
+  .contactMobile {
+    display: none;
+    font-size: .8em;
+  }
+  .contactDesktop {
+    display: flex;
+  }
+}
+
+@media only screen and (max-height: 600px) {
+  .waterBackground {
+    height: 500vh;
+  }
 }

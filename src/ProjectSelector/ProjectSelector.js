@@ -7,23 +7,23 @@ import {StyleRoot} from 'radium';
 class ProjectSelector extends Component {
 
   render() {
-    var initialSize = 2;
-    var selectedSize = 3;
-    var initialColor = '#edc63b';
-    var newColor = '#ed883b';
+    const initialSize = 2;
+    const selectedSize = 3;
+    const initialColor = '#edc63b';
+    const newColor = '#ed883b';
 
-    var selectProject = () => {
+    const selectProject = () => {
       this.props.selectProject(this.props.id);
     }
 
-    var selectedAnim = Radium.keyframes({
+    const selectedAnim = Radium.keyframes({
       '0%': {fontSize: `${initialSize}em`},
       '30%': { fontSize: `${initialSize*.97}em`},
       '80%': { fontSize: `${selectedSize*1.05}em`},
       '100%': { fontSize: `${selectedSize}em`},
     });
 
-    var deselectedAnim = Radium.keyframes({
+    const deselectedAnim = Radium.keyframes({
       '0%': {fontSize: `${selectedSize}em`},
       '30%': {fontSize: `${selectedSize*1.05}em`},
       '80%': {fontSize: `${initialSize*.97}em`},
@@ -57,7 +57,7 @@ class ProjectSelector extends Component {
     return (
       <div>
         <StyleRoot>
-          <div className={`selector`} style={styles.selector}>{this.props.name}</div>
+          <div className="selector" style={styles.selector}>{this.props.name}</div>
         </StyleRoot>
       </div>
     )

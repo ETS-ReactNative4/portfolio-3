@@ -1,9 +1,9 @@
 @value tablet, desktop from '../Variables.css';
 
 .nameBar {
-  background-color: rgb(255, 209, 115);
+  background-color: rgb(56, 56, 56);
   padding: 2em 2em 1em 2em;
-  border-radius: 1em 0 0 0;
+  border-radius: 1em 1em 0 0;
 }
 
 .video video{
@@ -13,27 +13,32 @@
 
 .name {
   font-size: 3em;
-  color: black;
+  color: white;
+  text-shadow: 2px 2px 0px black;
 }
 
 .mainDisplay {
   background-color: #dcf4ff;
-  padding: 1em 5em 5em 2em;
-  border-radius: 0 0 0 1em;
+  padding: 1em 2em;
+  padding-bottom: 4em;
+  border-radius: 0 0 1em 1em;
 }
 
 .projectBox {
   box-shadow: -6px 5px 0px #0006;
-  border-radius: 1em 0 0 1em;
+  border-radius: 1em;
 }
 
 .tech {
-  color: black;
   font-size: 1.2em;
+  color: white;
+  text-shadow: 1px 1px 1px black;
+  opacity: .8;
+  letter-spacing: 3px;
 }
 
 .details {
-  color: black;
+  color: #4a4a4a;
 }
 
 .footer {
@@ -52,5 +57,13 @@
 }
 
 @media only screen and (min-width: tablet) {
-
+  .nameBar {
+    border-radius: 1em 0 0 0;
+  }
+  .mainDisplay {
+    border-radius: 0 0 0 1em;
+  }
+  .projectBox {
+    border-radius: 1em 0 0 1em;
+  }
 }

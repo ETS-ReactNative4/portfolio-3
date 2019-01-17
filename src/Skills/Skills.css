@@ -4,6 +4,8 @@
   margin-top: 34em;
   /*centers in the container*/
   text-align: center;
+  margin-bottom: 30em;
+  position: relative;
 }
 
 .container svg {

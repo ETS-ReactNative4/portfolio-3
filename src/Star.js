@@ -4,6 +4,7 @@ import anime from 'animejs'
 import './Star.css';
 import Radium, { Style } from 'radium';
 import {StyleRoot} from 'radium';
+
 class Star extends Component {
 
   constructor(props) {
@@ -16,15 +17,15 @@ class Star extends Component {
 
     const intensity = Math.floor(Math.random()*5 + 2)
 
-    var pulseKeyframes = Radium.keyframes({
+    const pulseKeyframes = Radium.keyframes({
       '0%': {height: `${intensity}px`, width: `${intensity}px`},
       '100%': {height: `${Math.floor(intensity*.5)}px`, width: `${Math.floor(intensity*.5)}px`},
     }, 'pulse');
 
 
-    var styles = {
+    const styles = {
       star: {
-        animation: `x ${intensity}s ease 0s infinite alternate`,
+        animation: `x ${intensity/2}s ease infinite alternate`,
         animationName: pulseKeyframes,
         color: 'white',
         position: 'absolute',
@@ -38,7 +39,7 @@ class Star extends Component {
     };
 
     return (
-        <p style={[styles.star]}></p>
+        <p style={[styles.star]} />
     )
   }
 }

@@ -13,6 +13,7 @@
   flex-direction: row;
   margin-bottom: 1em;
   font-size: .7em;
+  justify-content: center;
 }
 
 .mobile {
@@ -36,7 +37,8 @@
 
 .projectDisplay {
   position: absolute;
-  right: 0;
+  right: 1em;
+  left: 1em;
   max-width: 100%;
   margin-top: 2em;
 }
@@ -53,6 +55,7 @@
     z-index: 1;
     padding-top: 5em;
     font-size: 1em;
+    display: block;
   }
 
   .projectRoot {
@@ -79,9 +82,10 @@
 
   .projectDisplay {
     position: absolute;
-    margin-top: 0em;
+    margin-top: 2em;
     right: 0;
     max-width: 40%;
+    left: auto;
   }
 }
 
@@ -89,6 +93,6 @@
   .projectDisplay {
     position: absolute;
     right: 0;
-    max-width: 55%;
+    max-width: 50%;
   }
 }

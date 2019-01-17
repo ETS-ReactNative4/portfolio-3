@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
-import ProjectSelector from '../ProjectSelector/ProjectSelector';
 import './Projects.css';
 import {StyleRoot} from 'radium';
 import Radium, { Style } from 'radium';
 import anime from 'animejs'
-import ProjectDisplay from '../ProjectSelector/ProjectDisplay';
 import ReactSVG from 'react-svg'
+import ScrollAnimation from 'react-animate-on-scroll';
+import ProjectDisplay from '../ProjectSelector/ProjectDisplay';
 import compass from '../img/compass.svg';
+import ProjectSelector from '../ProjectSelector/ProjectSelector';
+import "animate.css/animate.min.css";
 
 const projects = [
   {
@@ -31,7 +33,7 @@ const projects = [
     description: 'Bargreen Ellingson\'s internal wellness program web app. Employees can earn points through healthy activities, and redeem those points for prizes. The events and prizes redeemed are managed by coordinators and admins. I inhereted this project while it was still half-made from an outgoing developer and worked with Bargreen\'s wellness coordinators to get it shipped.',
     repository: null,
     video: 'wellness',
-    link: 'https://dev.giving.group/groups/thankyoumaam'
+    link: 'https://wellness.bargreen.io'
   },
   {
     name: 'Magento 2 PWA',
@@ -42,12 +44,12 @@ const projects = [
     link: 'https://upward.bargreen.io/'
   },
   {
-    name: 'Overwatch Stats',
-    tech: 'Angular2 - OWAPI',
-    description: 'Capstone project for my programming bootcamp. Reads the Overwatch API for player statistics and displays them in a friendly format. The API is no longer maintained so the site is depricated, but I have a video from development.',
-    repository: 'https://github.com/JStein92/overwatch-stats',
-    video: 'overwatchstats',
-    link: null
+    name: 'Off The Record',
+    tech: 'AngularJS',
+    description: 'I helped Off The Record develop their web app during a 3 month internship in Seattle, WA. I primarily worked on the "reviews" page and the log in/sign up modals.',
+    repository: 'null',
+    video: 'offtherecord',
+    link: 'https://offtherecord.com/'
   },
 ]
 
@@ -64,10 +66,10 @@ class Projects extends Component {
   }
 
   anim(id) {
-    let that = this;
+    const that = this;
     const anim = anime({
       targets: `.projectDisplay`,
-      duration: 500,
+      duration: 800,
       right: ['-50%', '0em', '-1%', '0'],
       easing: 'easeInOutQuad',
       begin() {
@@ -94,26 +96,26 @@ class Projects extends Component {
     }
 
   render() {
-    let handleHover = id => {
+    const handleHover = id => {
       anime({
         targets: `.projectRoot${id} div`,
-        duration: 200,
+        duration: 300,
         letterSpacing: '2px',
         easing: 'easeInOutQuad'
       });
     }
 
-    let handleHoverLeave = id => {
+    const handleHoverLeave = id => {
       anime({
         targets: `.projectRoot${id} div`,
-        duration: 200,
+        duration: 300,
         letterSpacing: '1px',
         easing: 'easeInOutQuad'
       });
     }
 
-    let circleWidth = 50;
-    let circleStyle = {
+    const circleWidth = 50;
+    const circleStyle = {
         width: `${circleWidth}em`,
         height: `${circleWidth}em`,
         borderRadius: `50%`,
@@ -128,14 +130,15 @@ class Projects extends Component {
     let paddingLeft = circleWidth/(projects.length+1);
     let rotation = -45;
     return (
-      <div className="projectsRoot">
+
+      <div className="projectsRoot" id="projects">
+        <ScrollAnimation animateIn="fadeIn" animateOnce initiallyVisible={false}>
         <ReactSVG className="githubLogo" src={compass} />
         <div className="projectSelectors desktop">
           <div className="projectDisplay">
             <ProjectDisplay project={this.state.selectedProject} />
           </div>
-          <div style={circleStyle} className="circle">
-          </div>
+          <div style={circleStyle} className="circle" />
           { projects.map((project, i) => {
               marginTop += (circleWidth/projects.length*.4);
               rotation += (circleWidth/projects.length*1.5);
@@ -144,7 +147,7 @@ class Projects extends Component {
               } else {
                 paddingLeft += (circleWidth/projects.length*.4 - (i + 1));
               }
-              let style = {
+              const style = {
                 position: 'absolute',
                 marginTop: `${marginTop}em`,
                 paddingLeft: `${paddingLeft}em`,
@@ -162,19 +165,18 @@ class Projects extends Component {
         </div>
 
         <div className="mobile">
-            { projects.map((project, i) => {
-                return (
+            { projects.map((project, i) => (
                   <StyleRoot className={`projectRoot${i} projectRoot`} key={i} onClick={() => this.selectProject(i, false)}
                     onMouseEnter={() => handleHover(i)} onMouseLeave={() => handleHoverLeave(i)} >
                     <ProjectSelector  key={i} id={i} currentlySelected={projects.indexOf(this.state.selectedProject) === i} name={project.name}  />
                   </StyleRoot>
-                )
-              })
+                ))
             }
             <div className="projectDisplay">
               <ProjectDisplay project={this.state.selectedProject} />
             </div>
         </div>
+      </ScrollAnimation>
       </div>
     )
 

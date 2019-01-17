@@ -2,11 +2,13 @@ import React, { Component } from 'react';
 import './ProjectDisplay.css';
 import { GitHub, Link, Youtube } from 'react-feather';
 import ReactPlayer from 'react-player';
+import ScrollAnimation from 'react-animate-on-scroll';
 import crunch from '../video/crunch.mp4';
 import magento2pwa from '../video/magento2pwa.mp4';
 import thankyoumaam from '../video/thankyoumaam.mp4';
 import wellness from '../video/wellness.mp4';
-import overwatchstats from '../video/overwatchstats.mp4';
+import offtherecord from '../video/offtherecord.mp4';
+import "animate.css/animate.min.css";
 
 class ProjectDisplay extends Component {
 
@@ -38,11 +40,13 @@ class ProjectDisplay extends Component {
   }
 
   render() {
-    const vids = {crunch, magento2pwa, wellness, thankyoumaam, overwatchstats};
+    const vids = {crunch, magento2pwa, wellness, thankyoumaam, offtherecord};
     const { repoLink, liveLink, videoLink } = this;
     const { project } = this.props;
     return (
       <div className="projectBox">
+        <ScrollAnimation animateIn="fadeIn" animateOnce initiallyVisible>
+
         <div className="nameBar">
           <span className="name">{project.name}</span>
           <div className="tech">{project.tech}</div>
@@ -57,6 +61,8 @@ class ProjectDisplay extends Component {
             <span>{liveLink}</span>
           </div>
         </div>
+
+      </ScrollAnimation>
       </div>
     );
   }
