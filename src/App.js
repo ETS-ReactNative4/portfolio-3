@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
 import './App.css';
 import ReactDOM from 'react-dom'
+import { ArrowDownCircle } from 'react-feather';
+import ScrollAnimation from 'react-animate-on-scroll';
 import  AnimatedText  from './AnimatedText';
 import StarsBackground from './StarsBackground';
 import { Ground } from './Ground';
-import { ArrowDownCircle } from 'react-feather';
-import ScrollAnimation from 'react-animate-on-scroll';
 import "animate.css/animate.min.css";
+
 class App extends Component {
 
   componentDidMount() {
-    var elmnt = document.getElementById("app");
+    const elmnt = document.getElementById("app");
     elmnt.scrollIntoView({ block: 'start',  behavior: 'smooth' });
   }
 
@@ -18,11 +19,11 @@ class App extends Component {
     return (
       <div>
       <div className="App" id="app">
-          <StarsBackground starCount={150}/>
+          <StarsBackground starCount={100}/>
           <div className='introText'>
-            <span className="nameTitle"><AnimatedText text={"Jonathan Stein"} fontSize="2" id="a"/></span>
-            <br></br>
-            <span className="subtitle"><AnimatedText text={"Web developer"} fontSize="1.3" delay={2000} id="b"/></span>
+            <span className="nameTitle"><AnimatedText text="Jonathan Stein" fontSize="2" id="a"/></span>
+            <br />
+            <span className="subtitle"><AnimatedText text="Web developer" fontSize="1.3" delay={2000} id="b"/></span>
               <div className="seeMore">
                 <div onClick={() => this.scrollToProject()}>
                   <ScrollAnimation animateIn="fadeIn" animateOut="fadeOut" initiallyVisible={false}>
@@ -41,7 +42,7 @@ class App extends Component {
   }
 
   scrollToProject = () => {
-    var elmnt = document.getElementById("projects");
+    const elmnt = document.getElementById("projects");
     elmnt.scrollIntoView({ block: 'start',  behavior: 'smooth' });
   }
 }

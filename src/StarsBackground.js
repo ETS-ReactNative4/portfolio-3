@@ -7,10 +7,6 @@ import {StyleRoot} from 'radium';
 import Star from './Star';
 
 class StarsBackground extends Component {
-  generateStars() {
-
-  }
-
   render () {
     const stars = [];
     for (let i = 0; i < this.props.starCount; i++) {
@@ -19,7 +15,6 @@ class StarsBackground extends Component {
 
     return (
     <StyleRoot>
-
       <div className="background-root">
         {
           stars.map((star, i) => <Star key={i} />)

@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import Anime from 'react-anime';
 import anime from 'animejs'
 import './Ground.css'
+import { GitHub, Mail, Phone } from 'react-feather';
 import Projects from './Projects/Projects';
 import Skills from './Skills/Skills';
-import { GitHub, Mail, Phone } from 'react-feather';
 
 export class Ground extends Component {
 
@@ -29,11 +29,9 @@ export class Ground extends Component {
     });
   }
 
-
-
   render () {
     const blocks = [];
-    for (let i = 0; i < 50; i++) {
+    for (let i = 0; i < 25; i++) {
       blocks.push(i);
     }
     return (
