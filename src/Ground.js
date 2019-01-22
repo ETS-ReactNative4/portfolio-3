@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import Anime from 'react-anime';
 import anime from 'animejs'
 import './Ground.css'
-import { GitHub, Mail, Phone } from 'react-feather';
+import { GitHub, Mail } from 'react-feather';
 import Projects from './Projects/Projects';
 import Skills from './Skills/Skills';
+import WaterBackground from './WaterBackground';
 
-export class Ground extends Component {
+export default class Ground extends Component {
 
   constructor() {
     super();
@@ -36,7 +36,6 @@ export class Ground extends Component {
     }
     return (
       <div className="groundWrapper">
-
         <div id="waves">
           <div className="line">
             {
@@ -62,6 +61,7 @@ export class Ground extends Component {
               </a></span>
             <a href="mailto:jonathanstein@live.com" className="email">jonathanstein@live.com</a>
             </span>
+            <WaterBackground />
         </div>
       </div>
 

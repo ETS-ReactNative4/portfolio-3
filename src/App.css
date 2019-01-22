@@ -11,6 +11,12 @@ body {
   height: 80vh;
   margin: auto;
   font-size: .9em;
+  z-index: 3;
+}
+
+.sky {
+  position: absolute;
+  z-index: 3;
 }
 
 .appWrapper {
@@ -69,7 +75,7 @@ body {
   animation: 4.2s ease 0s normal infinite bounce, 5s ease 0s normal forwards 1 fadein;
   width: 100%;
   top: 50%;
-  z-index: -1;
+  z-index: 0;
 }
 
 .seeMore svg {

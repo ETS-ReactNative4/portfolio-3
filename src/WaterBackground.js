@@ -1,13 +1,14 @@
 import React, {Component} from 'react';
 import * as THREE from 'three';
+import './waterBackground.css';
 
-export default class StarsBackground extends Component {
+export default class WaterBackground extends Component {
 
   componentDidMount(){
       window.addEventListener( 'resize', this.onWindowResize, false );
       window.addEventListener( 'scroll', this.onScroll, false );
-      const width = this.mount.clientWidth
-      const height = this.mount.clientHeight
+      const width = this.mount.clientWidth;
+      const height = this.mount.clientHeight * 3
 
       // ADD SCENE
       this.scene = new THREE.Scene()
@@ -23,7 +24,6 @@ export default class StarsBackground extends Component {
 
       // ADD RENDERER
       this.renderer = new THREE.WebGLRenderer({ antialias: true })
-      this.renderer.setClearColor('#000000')
       this.renderer.setSize(width, height)
       this.mount.appendChild(this.renderer.domElement)
 
@@ -46,8 +46,8 @@ export default class StarsBackground extends Component {
       if (!this.frameId) {
         this.frameId = window.requestAnimationFrame(this.animate)
       }
-      const starQty = 5000;
-  		const	geometry = new THREE.SphereGeometry(100, 8, 8);
+      const starQty = 10000;
+  		const	geometry = new THREE.SphereGeometry(1000, 8, 8);
 
   	    const	materialOptions = {
   	    		size: 1.0, // I know this is the default, it's for you.  Play with it if you want.
@@ -82,7 +82,7 @@ export default class StarsBackground extends Component {
     }
 
   animate = () => {
-    this.camera.rotation.y += ( - window.scrollY - this.camera.position.y + 20) * 0.00001;
+    this.camera.rotation.x -= ( this.camera.position.y + 200) * 0.00001;
 
      this.renderScene()
      this.frameId = window.requestAnimationFrame(this.animate)
@@ -104,8 +104,7 @@ export default class StarsBackground extends Component {
 
   render(){
       return(
-        <div className="background-root"
-          style={{ width: '100vh', height: '100vh', position: 'absolute', zIndex: '0'}}
+        <div className="waterBackground-root"
           ref={(mount) => { this.mount = mount }}
         />
       )

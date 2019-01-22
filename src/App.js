@@ -1,17 +1,21 @@
 import React, { Component } from 'react';
 import './App.css';
-import ReactDOM from 'react-dom'
+import "animate.css/animate.min.css";
 import { ArrowDownCircle } from 'react-feather';
 import ScrollAnimation from 'react-animate-on-scroll';
 import  AnimatedText  from './AnimatedText';
 import StarsBackground from './StarsBackground';
-import { Ground } from './Ground';
-import "animate.css/animate.min.css";
+import Ground from './Ground';
 
 class App extends Component {
 
   componentDidMount() {
     const elmnt = document.getElementById("app");
+    elmnt.scrollIntoView({ block: 'start',  behavior: 'smooth' });
+  }
+
+  scrollToProject = () => {
+    const elmnt = document.getElementById("projects");
     elmnt.scrollIntoView({ block: 'start',  behavior: 'smooth' });
   }
 
@@ -25,7 +29,7 @@ class App extends Component {
             <br />
             <span className="subtitle"><AnimatedText text="Web developer" fontSize="1.3" delay={2000} id="b"/></span>
               <div className="seeMore">
-                <div onClick={() => this.scrollToProject()}>
+                <div>
                   <ScrollAnimation animateIn="fadeIn" animateOut="fadeOut" initiallyVisible={false}>
                   Explore Below
                   <p className="arrow">
@@ -41,10 +45,6 @@ class App extends Component {
     );
   }
 
-  scrollToProject = () => {
-    const elmnt = document.getElementById("projects");
-    elmnt.scrollIntoView({ block: 'start',  behavior: 'smooth' });
-  }
 }
 
 export default App;

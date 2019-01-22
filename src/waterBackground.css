@@ -1,0 +1,7 @@
+.waterBackground-root {
+  position: fixed;
+  z-index: 1;
+  opacity: .1;
+  bottom: 0;
+  pointer-events: none;
+}
