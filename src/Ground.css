@@ -57,7 +57,8 @@
   padding: 0;
   margin: 0;
   justify-content: stretch;
-  outline: 10px solid #87e0fd;
+  outline: 1px solid #87e0fd;
+  border: 5px solid #87e0fd;
   z-index: -1;
 }
 
@@ -66,7 +67,7 @@
   background-color: #87e0fd;
   z-index: 1;
   width: 1em;
-  bottom: 0;
+  bottom: -1em;
   position: absolute;
   display: flex;
   justify-content: space-around;

@@ -3,6 +3,7 @@ import anime from 'animejs'
 import { GitHub, Mail } from 'react-feather';
 import Projects from './Projects/Projects';
 import Skills from './Skills/Skills';
+
 import './Ground.css'
 
 export default class Ground extends PureComponent {

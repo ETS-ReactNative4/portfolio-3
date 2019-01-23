@@ -45,20 +45,16 @@ export default class StarsBackground extends PureComponent {
       if (!this.frameId) {
         this.frameId = window.requestAnimationFrame(this.animate)
       }
-      const starQty = 2500;
+      const starQty = 5000;
   		const	geometry = new THREE.SphereGeometry(100, 2, 2);
 
-  	    const	materialOptions = {
-  	    		size: 1.0, // I know this is the default, it's for you.  Play with it if you want.
-  	    		transparency: true,
-  	    		opacity: 0.7
-  	    	};
+	    const	materialOptions = {
+	    		size: 1.0
+	    	};
 
-  	    	const starStuff = new THREE.PointCloudMaterial(materialOptions);
+    	const starStuff = new THREE.PointCloudMaterial(materialOptions);
 
-  		// The wizard gaze became stern, his jaw set, he creates the cosmos with a wave of his arms
-
-  		for (let i = 0; i < starQty; i++) {
+  		for (let i = 0; i < starQty; i+=1) {
 
   			const starVertex = new THREE.Vector3();
   			starVertex.x = Math.random() * 2000 - 1000;
@@ -66,9 +62,7 @@ export default class StarsBackground extends PureComponent {
   			starVertex.z = Math.random() * 2000 - 1000;
 
   			geometry.vertices.push(starVertex);
-
   		}
-
 
   		const stars = new THREE.PointCloud(geometry, starStuff);
   		this.scene.add(stars);
@@ -81,8 +75,7 @@ export default class StarsBackground extends PureComponent {
     }
 
   animate = () => {
-    this.camera.rotation.y += ( - window.scrollY - this.camera.position.y + 20) * 0.00001;
-
+     this.camera.rotation.y += ( - window.scrollY - this.camera.position.y + 20) * 0.00001;
      this.renderScene()
      this.frameId = window.requestAnimationFrame(this.animate)
    }
@@ -92,7 +85,6 @@ export default class StarsBackground extends PureComponent {
   }
 
   onWindowResize = () => {
-
     this.camera.aspect = window.innerWidth / window.innerHeight;
     this.camera.updateProjectionMatrix();
     this.renderer.setSize( window.innerWidth, window.innerHeight );
