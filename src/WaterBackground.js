@@ -1,8 +1,8 @@
-import React, {Component} from 'react';
+import React, {PureComponent} from 'react';
 import * as THREE from 'three';
 import './waterBackground.css';
 
-export default class WaterBackground extends Component {
+export default class WaterBackground extends PureComponent {
 
   componentDidMount(){
       window.addEventListener( 'resize', this.onWindowResize, false );
@@ -35,8 +35,6 @@ export default class WaterBackground extends Component {
       this.start()
     }
 
-
-
   componentWillUnmount(){
       this.stop()
       this.mount.removeChild(this.renderer.domElement)
@@ -46,8 +44,8 @@ export default class WaterBackground extends Component {
       if (!this.frameId) {
         this.frameId = window.requestAnimationFrame(this.animate)
       }
-      const starQty = 10000;
-  		const	geometry = new THREE.SphereGeometry(1000, 8, 8);
+      const starQty = 100;
+  		const	geometry = new THREE.SphereGeometry(1000, 2, 2);
 
   	    const	materialOptions = {
   	    		size: 1.0, // I know this is the default, it's for you.  Play with it if you want.
@@ -59,7 +57,7 @@ export default class WaterBackground extends Component {
 
   		// The wizard gaze became stern, his jaw set, he creates the cosmos with a wave of his arms
 
-  		for (let i = 0; i < starQty; i++) {
+  		for (let i = 0; i < starQty; i+=1) {
 
   			const starVertex = new THREE.Vector3();
   			starVertex.x = Math.random() * 2000 - 1000;

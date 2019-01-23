@@ -1,11 +1,10 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
+import Radium, {StyleRoot} from 'radium';
 import Anime from 'react-anime';
 import anime from 'animejs'
 import './AnimatedText.css';
-import Radium, { Style } from 'radium';
-import {StyleRoot} from 'radium';
 
-class AnimatedText extends Component {
+class AnimatedText extends PureComponent {
 
   constructor(props) {
     super(props);
@@ -20,44 +19,56 @@ class AnimatedText extends Component {
     // this.show = this.show.bind(this);
   }
 
-  addToAnimating(i) {
-    this.state.animations.push(i);
-  }
 
-  removeFromAnimating(i) {
-    const index = this.state.animations.indexOf(i);
-    this.state.animations.splice(index, 1);
-  }
-
-  isAnimating(i) {
-    if (this.state.animations.includes(i)) {
-      return true;
-    } 
-      return false;
-    
-  }
 
   componentWillMount() {
+    const { props } = this;
+
     setTimeout( () => {
       this.setState({
         showText: true
       })
-    }, this.props.delay);
+    }, props.delay);
+  }
+
+  addToAnimating = i => {
+    const { state } = this;
+    const { animations } = state;
+    animations.push(i);
+  }
+
+  removeFromAnimating = i => {
+    const { state } = this;
+    const { animations } = state;
+
+    const index = animations.indexOf(i);
+    animations.splice(index, 1);
+  }
+
+  isAnimating = i => {
+    const { state } = this;
+    const { animations } = state;
+    if (animations.includes(i)) {
+      return true;
+    }
+      return false;
+
   }
 
 
-
   handleHover(i) {
+    const { props } = this;
+
     const isThisAnimating = this.isAnimating(i);
     if (!isThisAnimating) {
       anime({
-        targets: `.text-root${this.props.id}${i}`,
-        scale: [this.props.fontSize * 1.5],
+        targets: `.text-root${props.id}${i}`,
+        scale: [props.fontSize * 1.5],
         easing: "easeInOutSine",
         duration: 400,
         rotate: ['-.1turn'],
         direction: 'alternate',
-        width: this.props.fontSize*20,
+        width: props.fontSize*20,
         color: "rgb(255,0,0)",
         begin: () => {
           this.addToAnimating(i);
@@ -70,30 +81,31 @@ class AnimatedText extends Component {
   }
 
   render () {
+    const { props, state } = this;
     const styles = {
       textStyle: {
-        fontSize: `${this.props.fontSize}em`,
-        lineHeight: `${this.props.fontSize}em`,
-        letterSpacing: `${this.props.fontSize/1.3}em`,
+        fontSize: `${props.fontSize}em`,
+        lineHeight: `${props.fontSize}em`,
+        letterSpacing: `${props.fontSize/1.3}em`,
       }
     }
-    const letters = this.props.text.split('').map(letter => {
+    const letters = props.text.split('').map(letter => {
       if (letter === ' ') {
         return <div>&nbsp;</div>
-      } 
+      }
         return <span>{letter}</span>
-      
+
     });
 
-    if (this.state.showText ) {
+    if (state.showText ) {
       return (
         <div>
           <div className="text-root">
             <StyleRoot>
             { letters.map((letter, i) =>
               <Anime key={i} delay={i * 100}
-                scale={[0, this.props.fontSize]}>
-                <span key={`${this.props.id}${i}`} className={`text-root${this.props.id}${i}`} style={styles.textStyle} onMouseEnter={evt => this.handleHover(i)}>{letter}</span>
+                scale={[0, props.fontSize]}>
+                <span key={`${props.id}${i}`} className={`text-root${props.id}${i}`} style={styles.textStyle} onMouseEnter={evt => this.handleHover(i)}>{letter}</span>
               </Anime>
             )}
             </StyleRoot>
@@ -102,17 +114,16 @@ class AnimatedText extends Component {
             <StyleRoot>
             { letters.map((letter, i) =>
               <Anime key={i} delay={i * 100}
-                scale={[0, this.props.fontSize]}>
-                <span key={`${this.props.id}${i}`} className={`${this.props.id}${i}`}>{letter}</span>
+                scale={[0, props.fontSize]}>
+                <span key={`${props.id}${i}`} className={`${props.id}${i}`}>{letter}</span>
               </Anime>
             )}
             </StyleRoot>
           </div>
       </div>
     )
-  } 
+  }
     return null;
-  
 }
 }
 

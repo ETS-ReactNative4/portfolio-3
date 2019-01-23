@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import './ProjectDisplay.css';
 import { GitHub, Link, Youtube } from 'react-feather';
 import ReactPlayer from 'react-player';
@@ -10,7 +10,7 @@ import wellness from '../video/wellness.mp4';
 import offtherecord from '../video/offtherecord.mp4';
 import "animate.css/animate.min.css";
 
-class ProjectDisplay extends Component {
+class ProjectDisplay extends PureComponent {
 
   get repoLink() {
     const { project } = this.props;

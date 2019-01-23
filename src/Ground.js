@@ -1,12 +1,11 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import anime from 'animejs'
-import './Ground.css'
 import { GitHub, Mail } from 'react-feather';
 import Projects from './Projects/Projects';
 import Skills from './Skills/Skills';
-import WaterBackground from './WaterBackground';
+import './Ground.css'
 
-export default class Ground extends Component {
+export default class Ground extends PureComponent {
 
   constructor() {
     super();
@@ -17,7 +16,7 @@ export default class Ground extends Component {
     this.handleHover()
   }
 
-  handleHover() {
+  handleHover = () => {
     anime({
       targets: '.el',
       translateY: [{value: -100, duration: 1000}, {value: 0, duration: 1000}],
@@ -30,8 +29,9 @@ export default class Ground extends Component {
   }
 
   render () {
+    const { props } = this;
     const blocks = [];
-    for (let i = 0; i < 25; i++) {
+    for (let i = 0; i < 25; i+=1) {
       blocks.push(i);
     }
     return (
@@ -44,7 +44,7 @@ export default class Ground extends Component {
           </div>
         </div>
         <div className="waterBackground">
-          <Projects projectRef={this.props.projectRef} />
+          <Projects projectRef={props.projectRef} />
           <Skills />
             <span className="contact contactMobile">
               <span className="github">
@@ -61,7 +61,6 @@ export default class Ground extends Component {
               </a></span>
             <a href="mailto:jonathanstein@live.com" className="email">jonathanstein@live.com</a>
             </span>
-            <WaterBackground />
         </div>
       </div>
 

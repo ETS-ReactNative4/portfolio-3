@@ -3,6 +3,7 @@ import './App.css';
 import "animate.css/animate.min.css";
 import { ArrowDownCircle } from 'react-feather';
 import ScrollAnimation from 'react-animate-on-scroll';
+import PageProgress from 'react-page-progress';
 import  AnimatedText  from './AnimatedText';
 import StarsBackground from './StarsBackground';
 import Ground from './Ground';
@@ -22,8 +23,9 @@ class App extends Component {
   render() {
     return (
       <div>
+        <PageProgress height={3} color="orange" />
       <div className="App" id="app">
-          <StarsBackground starCount={100}/>
+          <StarsBackground/>
           <div className='introText'>
             <span className="nameTitle"><AnimatedText text="Jonathan Stein" fontSize="2" id="a"/></span>
             <br />

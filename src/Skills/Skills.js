@@ -1,27 +1,27 @@
-import React, { Component } from 'react';
-import './Skills.css';
-import ReactSVG from 'react-svg'
-import ScrollAnimation from 'react-animate-on-scroll';
-import jonathan from '../img/jonathan.svg';
 import "animate.css/animate.min.css";
+import React, { PureComponent } from 'react';
+import ScrollAnimation from 'react-animate-on-scroll';
+import ReactSVG from 'react-svg'
+import jonathan from '../img/jonathan.svg';
+import './Skills.css';
 
 function circularText(txt, radius, classIndex, className) {
-  txt = txt.split("");
-  classIndex = document.getElementsByClassName(className)[classIndex];
+  const splitTxt = txt.split("");
+  const classIndexGotten = document.getElementsByClassName(className)[classIndex];
 
-  const deg = 360 / txt.length;
+  const deg = 360 / splitTxt.length;
 
 
 let origin = 0;
 
-  txt.forEach((ea) => {
-    ea = `<p style='position:absolute;transform:rotate(${origin}deg);transform-origin:0 100%'>${ea}</p>`;
-    classIndex.innerHTML += ea;
+  splitTxt.forEach((ea) => {
+    const letter = `<p style='position:absolute;transform:rotate(${origin}deg);transform-origin:0 100%'>${ea}</p>`;
+    classIndexGotten.innerHTML += letter;
     origin += deg;
   });
 }
 
-class Skills extends Component {
+class Skills extends PureComponent {
 
   componentDidMount() {
     circularText("NodeJS  AngularJs  Angular2+  React  Redux  VueJs  CSS  Typescript  ", 300, 0, 'circTxt');

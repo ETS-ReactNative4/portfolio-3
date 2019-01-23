@@ -1,11 +1,10 @@
-import React, {Component} from 'react';
+import React, {PureComponent} from 'react';
 import * as THREE from 'three';
 
-export default class StarsBackground extends Component {
+export default class StarsBackground extends PureComponent {
 
   componentDidMount(){
       window.addEventListener( 'resize', this.onWindowResize, false );
-      window.addEventListener( 'scroll', this.onScroll, false );
       const width = this.mount.clientWidth
       const height = this.mount.clientHeight
 
@@ -46,8 +45,8 @@ export default class StarsBackground extends Component {
       if (!this.frameId) {
         this.frameId = window.requestAnimationFrame(this.animate)
       }
-      const starQty = 5000;
-  		const	geometry = new THREE.SphereGeometry(100, 8, 8);
+      const starQty = 2500;
+  		const	geometry = new THREE.SphereGeometry(100, 2, 2);
 
   	    const	materialOptions = {
   	    		size: 1.0, // I know this is the default, it's for you.  Play with it if you want.
@@ -99,8 +98,6 @@ export default class StarsBackground extends Component {
     this.renderer.setSize( window.innerWidth, window.innerHeight );
 }
 
-  onScroll = () => {
-}
 
   render(){
       return(

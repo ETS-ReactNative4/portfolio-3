@@ -1,20 +1,13 @@
-import React, { Component } from 'react';
-import anime from 'animejs'
+import React, { PureComponent } from 'react';
+import Radium, {StyleRoot} from 'radium';
 import './ProjectSelector.css';
-import Radium, { Style } from 'radium';
-import {StyleRoot} from 'radium';
 
-class ProjectSelector extends Component {
+class ProjectSelector extends PureComponent {
 
   render() {
+    const { props } = this;
     const initialSize = 2;
     const selectedSize = 3;
-    const initialColor = '#edc63b';
-    const newColor = '#ed883b';
-
-    const selectProject = () => {
-      this.props.selectProject(this.props.id);
-    }
 
     const selectedAnim = Radium.keyframes({
       '0%': {fontSize: `${initialSize}em`},
@@ -30,8 +23,10 @@ class ProjectSelector extends Component {
       '100%': {fontSize: `${initialSize}em`},
     });
 
-    if (!this.props.currentlySelected) {
-      var styles = {
+    let styles = {};
+
+    if (!props.currentlySelected) {
+       styles = {
         selector: {
           animation: `.5s ease`,
           animationName: deselectedAnim,
@@ -42,7 +37,7 @@ class ProjectSelector extends Component {
         }
       };
     } else {
-      var styles = {
+       styles = {
         selector: {
           animation: `.5s ease`,
           animationName: selectedAnim,
@@ -57,7 +52,7 @@ class ProjectSelector extends Component {
     return (
       <div>
         <StyleRoot>
-          <div className="selector" style={styles.selector}>{this.props.name}</div>
+          <div className="selector" style={styles.selector}>{props.name}</div>
         </StyleRoot>
       </div>
     )
