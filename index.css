@@ -1,0 +1,7 @@
+#root, body {
+  height: 100vh;
+  margin: 0;
+  width: 100%;
+  background: black;
+  color: white;
+}
