@@ -16,7 +16,7 @@ class ProjectDisplay extends PureComponent {
     const { project } = this.props;
     return project.repository ? (
       <a className="repository" href={`${project.repository}`} target="_blank">
-        <GitHub color="black"/>
+        <GitHub color="white"/>
       </a>
     ) : <GitHub color="grey"/>
   }
@@ -25,7 +25,7 @@ class ProjectDisplay extends PureComponent {
     const { project } = this.props;
     return project.link ? (
       <a className="link" href={`${project.link}`} target="_blank">
-        <Link color="black"/>
+        <Link color="white"/>
       </a>
     ) : <Link color="grey"/>
   }
@@ -34,7 +34,7 @@ class ProjectDisplay extends PureComponent {
     const { project } = this.props;
     return project.video ? (
       <a className="video" href={`${project.video}`} target="_blank">
-        <Youtube color="black" />
+        <Youtube color="white" />
       </a>
     ) : <Youtube color="grey"/>
   }
@@ -50,16 +50,17 @@ class ProjectDisplay extends PureComponent {
         <div className="nameBar">
           <span className="name">{project.name}</span>
           <div className="tech">{project.tech}</div>
+          <div className="links">
+            <span>{repoLink}</span>
+            <span>{liveLink}</span>
+          </div>
         </div>
         <div className="video">
           <ReactPlayer url={vids[project.video]} playing loop width="100%" height="auto" maxheight="42em" />
         </div>
         <div className="mainDisplay">
           <span className="details">{project.description}</span>
-          <div className="footer">
-            <span>{repoLink}</span>
-            <span>{liveLink}</span>
-          </div>
+          <div className="footer" />
         </div>
 
       </ScrollAnimation>

@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import Radium, {StyleRoot} from 'radium';
+import Radium, { StyleRoot } from 'radium';
 import './ProjectSelector.css';
 
 class ProjectSelector extends PureComponent {
@@ -10,23 +10,23 @@ class ProjectSelector extends PureComponent {
     const selectedSize = 3;
 
     const selectedAnim = Radium.keyframes({
-      '0%': {fontSize: `${initialSize}em`},
-      '30%': { fontSize: `${initialSize*.97}em`},
-      '80%': { fontSize: `${selectedSize*1.05}em`},
-      '100%': { fontSize: `${selectedSize}em`},
+      '0%': { fontSize: `${initialSize}em` },
+      '30%': { fontSize: `${initialSize * .97}em` },
+      '80%': { fontSize: `${selectedSize * 1.05}em` },
+      '100%': { fontSize: `${selectedSize}em` },
     });
 
     const deselectedAnim = Radium.keyframes({
-      '0%': {fontSize: `${selectedSize}em`},
-      '30%': {fontSize: `${selectedSize*1.05}em`},
-      '80%': {fontSize: `${initialSize*.97}em`},
-      '100%': {fontSize: `${initialSize}em`},
+      '0%': { fontSize: `${selectedSize}em` },
+      '30%': { fontSize: `${selectedSize * 1.05}em` },
+      '80%': { fontSize: `${initialSize * .97}em` },
+      '100%': { fontSize: `${initialSize}em` },
     });
 
     let styles = {};
 
     if (!props.currentlySelected) {
-       styles = {
+      styles = {
         selector: {
           animation: `.5s ease`,
           animationName: deselectedAnim,
@@ -37,11 +37,11 @@ class ProjectSelector extends PureComponent {
         }
       };
     } else {
-       styles = {
+      styles = {
         selector: {
           animation: `.5s ease`,
           animationName: selectedAnim,
-          color: 'rgb(255, 209, 115)',
+          color: 'white',
           opacity: 1,
           transition: '.2s',
           fontSize: `${selectedSize}em`,

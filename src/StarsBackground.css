@@ -1,7 +1,8 @@
 .background-root {
   background-color: black;
-  width: 100vh;
   height: 100vh;
+  width: 100%;
+  overflow: hidden;
   z-index: 0;
-  position: fixed;
+  position: absolute;
 }

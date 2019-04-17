@@ -29,7 +29,7 @@ body {
   display: flex;
   justify-content: center;
   padding-left: 2em;
-  text-shadow: 1px 1px 0px #00c0ff;
+  text-shadow: 1px 1px 0px #387184;
 }
 
 .nameTitle {
@@ -70,9 +70,9 @@ body {
   text-align: center;
   padding-top: 2em;
   font-size: .9em;
-  text-shadow: 1px 1px 0px #00c0ff;
+  text-shadow: 1px 1px 0px #387184;
   letter-spacing: 6px;
-  animation: 4.2s ease 0s normal infinite bounce, 5s ease 0s normal forwards 1 fadein;
+  animation: 4.2s ease 0s normal infinite bounce, 9s ease 0s normal forwards 1 fadein;
   width: 100%;
   top: 50%;
   z-index: 0;

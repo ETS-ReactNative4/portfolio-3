@@ -18,10 +18,10 @@
 }
 
 .mainDisplay {
-  background-color: #dcf4ff;
-  padding: 1em 2em;
-  padding-bottom: 4em;
-  border-radius: 0 0 1em 1em;
+  background-color: rgb(56, 56, 56);
+  height: 10em;
+  padding: 1em;
+  margin-bottom: 3em;
 }
 
 .projectBox {
@@ -38,14 +38,22 @@
 }
 
 .details {
-  color: #4a4a4a;
+  font-weight: normal;
+}
+
+.links {
+  height: auto;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 2em 0;
 }
 
 .footer {
+  width: auto;
   position: absolute;
   bottom: 2em;
-  width: auto;
-  padding: .5em 0;
+  left: 1em;
 }
 
 .footer span {

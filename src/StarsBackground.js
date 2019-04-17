@@ -26,10 +26,10 @@ export default class StarsBackground extends PureComponent {
       this.renderer.setSize(width, height)
       this.mount.appendChild(this.renderer.domElement)
 
-      this.camera.aspect = window.innerWidth / window.innerHeight;
+      this.camera.aspect = document.documentElement.clientWidth / window.innerHeight;
       this.camera.updateProjectionMatrix();
 
-      this.renderer.setSize( window.innerWidth, window.innerHeight );
+      this.renderer.setSize( document.documentElement.clientWidth, window.innerHeight );
 
       this.start()
     }
@@ -85,16 +85,16 @@ export default class StarsBackground extends PureComponent {
   }
 
   onWindowResize = () => {
-    this.camera.aspect = window.innerWidth / window.innerHeight;
+    this.camera.aspect = document.documentElement.clientWidth / window.innerHeight;
     this.camera.updateProjectionMatrix();
-    this.renderer.setSize( window.innerWidth, window.innerHeight );
+    this.renderer.setSize( document.documentElement.clientWidth, window.innerHeight );
 }
 
 
   render(){
       return(
         <div className="background-root"
-          style={{ width: '100vh', height: '100vh', position: 'absolute', zIndex: '0'}}
+          style={{ height: '100vh', position: 'absolute', zIndex: '0'}}
           ref={(mount) => { this.mount = mount }}
         />
       )

@@ -1,0 +1,32 @@
+.loader-root {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  z-index: 100;
+  background: black;
+  animation:fadeOut 2s;
+  animation-delay:2s;
+  animation-fill-mode:forwards;
+  display: flex;
+  justify-content: center;
+  vertical-align: middle;
+}
+
+.loader-root * {
+  position: fixed;
+  top: 30%;
+}
+
+
+@keyframes fadeOut {
+    from {
+        opacity:1;
+        display: block;
+        visibility: visible;
+    }
+    to {
+        opacity:0;
+        display: none;
+        visibility: hidden;
+    }
+}

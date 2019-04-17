@@ -1,7 +1,6 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import './Projects.css';
-import {StyleRoot} from 'radium';
-import Radium, { Style } from 'radium';
+import Radium, { StyleRoot } from 'radium';
 import anime from 'animejs'
 import ReactSVG from 'react-svg'
 import ScrollAnimation from 'react-animate-on-scroll';
@@ -9,12 +8,13 @@ import ProjectDisplay from '../ProjectSelector/ProjectDisplay';
 import compass from '../img/compass.svg';
 import ProjectSelector from '../ProjectSelector/ProjectSelector';
 import "animate.css/animate.min.css";
+import Carousel from 'nuka-carousel';
 
 const projects = [
   {
     name: 'Crunch',
     tech: 'Angular2+ - Python - REST',
-    description: 'An internally developed business intellegence web app built in Angular2+. Lets sales people and managers at Bargreen Ellingson build and share custom reports. Connected to a Python backend. I helped develop and ship Crunch with a small team at Bargreen Ellignson.',
+    description: 'An internally developed business intellegence web app built in Angular2+. Lets sales people and managers at Bargreen Ellingson build and share custom reports. Connected to a Python backend. I helped develop and ship Crunch with a small team at Bargreen Ellingson.',
     repository: null,
     video: 'crunch',
     link: 'https://crunch.bargreen.com'
@@ -53,19 +53,15 @@ const projects = [
   },
 ]
 
-  document.onmousemove = handleMouseMove;
-  function handleMouseMove(event) {
-    // console.log(event)
-  }
+class Projects extends PureComponent {
 
-class Projects extends Component {
-
-  constructor(){
+  constructor() {
     super();
-    this.state = ({selectedProject: projects[0], animating: false});
+    this.state = ({ selectedProject: projects[0], animating: false });
   }
 
-  anim(id) {
+  anim() {
+    const { animating } = this.state;
     const that = this;
     const anim = anime({
       targets: `.projectDisplay`,
@@ -73,14 +69,14 @@ class Projects extends Component {
       right: ['-50%', '0em', '-1%', '0'],
       easing: 'easeInOutQuad',
       begin() {
-        that.setState({animating: true})
+        that.setState({ animating: true })
       },
       complete() {
-        that.setState({animating: false})
+        that.setState({ animating: false })
       }
     })
 
-    if (!this.state.animating) {
+    if (!animating) {
       anim.play();
     } else {
       anim.pause();
@@ -89,13 +85,15 @@ class Projects extends Component {
   }
 
   selectProject(id, useAnim) {
-    if (this.state.selectedProject !== projects[id]) {
-        useAnim ? this.anim(id) : null;
-        this.setState({selectedProject: projects[id]})
-      }
+    const { selectedProject } = this.state;
+    if (projects[id] && selectedProject !== projects[id]) {
+      useAnim ? this.anim(id) : null;
+      this.setState({ selectedProject: projects[id] })
     }
+  }
 
   render() {
+    const { selectedProject } = this.state;
     const handleHover = id => {
       anime({
         targets: `.projectRoot${id} div`,
@@ -116,67 +114,73 @@ class Projects extends Component {
 
     const circleWidth = 50;
     const circleStyle = {
-        width: `${circleWidth}em`,
-        height: `${circleWidth}em`,
-        borderRadius: `50%`,
-        border: `1em solid white`,
-        position: `absolute`,
-        left: `-40em`,
-        zIndex: `0`,
-        boxShadow: '2px 2px 3px #0006'
+      width: `${circleWidth}em`,
+      height: `${circleWidth}em`,
+      borderRadius: `50%`,
+      border: `1em solid #c0cace`,
+      position: `absolute`,
+      left: `-40em`,
+      zIndex: `0`,
+      boxShadow: '2px 2px 3px #0006'
     }
 
-    let marginTop = circleWidth/(projects.length) + 5;
-    let paddingLeft = circleWidth/(projects.length+1);
+    let marginTop = circleWidth / (projects.length) + 5;
+    let paddingLeft = circleWidth / (projects.length + 1);
     let rotation = -45;
+
+    const settings = {
+      dots: true,
+      infinite: true,
+      speed: 500,
+      slidesToShow: 1,
+      slidesToScroll: 1
+    };
     return (
 
       <div className="projectsRoot" id="projects">
         <ScrollAnimation animateIn="fadeIn" animateOnce initiallyVisible={false}>
-        <ReactSVG className="githubLogo" src={compass} />
-        <div className="projectSelectors desktop">
-          <div className="projectDisplay">
-            <ProjectDisplay project={this.state.selectedProject} />
-          </div>
-          <div style={circleStyle} className="circle" />
-          { projects.map((project, i) => {
-              marginTop += (circleWidth/projects.length*.4);
-              rotation += (circleWidth/projects.length*1.5);
-              if (i > projects.length/2) {
-                paddingLeft -= (circleWidth/projects.length*.4 - (projects.length - i));
+          <ReactSVG className="githubLogo" src={compass} />
+          <div className="projectSelectors desktop">
+            <div className="projectDisplay">
+              <ProjectDisplay project={selectedProject} />
+            </div>
+            <div style={circleStyle} className="circle" />
+            {projects.map((project, i) => {
+              marginTop += (circleWidth / projects.length * .4);
+              rotation += (circleWidth / projects.length * 1.5);
+              if (i > projects.length / 2) {
+                paddingLeft -= (circleWidth / projects.length * .4 - (projects.length - i));
               } else {
-                paddingLeft += (circleWidth/projects.length*.4 - (i + 1));
+                paddingLeft += (circleWidth / projects.length * .4 - (i + 1));
               }
               const style = {
                 position: 'absolute',
                 marginTop: `${marginTop}em`,
                 paddingLeft: `${paddingLeft}em`,
                 transform: `rotate(${rotation}deg)`,
-                transformOrigin: `-5em ${50/projects.length - i}%`
+                transformOrigin: `-5em ${50 / projects.length - i}%`
               }
               return (
                 <StyleRoot className={`projectRoot${i} projectRoot`} key={i} onClick={() => this.selectProject(i, true)} style={style}
                   onMouseEnter={() => handleHover(i)} onMouseLeave={() => handleHoverLeave(i)} >
-                  <ProjectSelector  key={i} id={i} currentlySelected={projects.indexOf(this.state.selectedProject) === i} name={project.name}  />
+                  <ProjectSelector key={i} id={i} currentlySelected={projects.indexOf(selectedProject) === i} name={project.name} />
                 </StyleRoot>
               )
             })
-          }
-        </div>
-
-        <div className="mobile">
-            { projects.map((project, i) => (
-                  <StyleRoot className={`projectRoot${i} projectRoot`} key={i} onClick={() => this.selectProject(i, false)}
-                    onMouseEnter={() => handleHover(i)} onMouseLeave={() => handleHoverLeave(i)} >
-                    <ProjectSelector  key={i} id={i} currentlySelected={projects.indexOf(this.state.selectedProject) === i} name={project.name}  />
-                  </StyleRoot>
-                ))
             }
+          </div>
+          <div className="mobile">
             <div className="projectDisplay">
-              <ProjectDisplay project={this.state.selectedProject} />
+
+              <Carousel>
+                {
+                  projects.map(project => <ProjectDisplay key={project} project={project} />)
+                }
+              </Carousel>
             </div>
-        </div>
-      </ScrollAnimation>
+          </div>
+        </ScrollAnimation>
+
       </div>
     )
 
