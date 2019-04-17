@@ -54,7 +54,7 @@ div.circTxt2 {
 
 @media only screen and (min-width: mobile) {
   .container {
-    margin-top: 65em;
+    margin-top: 40em;
     /*centers in the container*/
     text-align: center;
   }
@@ -77,11 +77,17 @@ div.circTxt2 {
   }
 }
 
+@media only screen and (min-width: 560px) {
+  .container {
+    margin-top: 50em;
+    /*centers in the container*/
+  }
+}
+
 @media only screen and (min-width: tablet) {
   .container {
     margin-top: 70em;
     /*centers in the container*/
-    text-align: center;
   }
 
   .container svg {

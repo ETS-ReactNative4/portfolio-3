@@ -12,33 +12,6 @@
   overflow: hidden;
 }
 
-.contact {
-  position: absolute;
-  bottom: 4em;
-  color: white;
-  font-size: .6em;
-  width: 100%;
-  letter-spacing: 2px;
-  display: flex;
-  justify-content: space-around;
-  opacity: .8;
-}
-
-.contact a {
-  color: white;
-  text-decoration: none;
-}
-
-.contactDesktop {
-  display: none;
-  font-size: .8em;
-}
-
-.email, .phone, .github {
-  padding: .5em;
-  opacity: .6;
-}
-
 .waterBackground {
   background: rgb(2,0,36);
   background: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(0,0,0,1) 0%, rgb(74, 88, 92, 85%), #8298a1 100%);
@@ -91,21 +64,10 @@
   }
 }
 
+
 @media only screen and (min-width: tablet) {
   .waterBackground {
     height: 260vh;
   }
-  .contactMobile {
-    display: none;
-    font-size: .8em;
-  }
-  .contactDesktop {
-    display: flex;
-  }
 }
 
-@media only screen and (max-height: 600px) {
-  .waterBackground {
-    height: 500vh;
-  }
-}

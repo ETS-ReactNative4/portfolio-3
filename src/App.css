@@ -41,6 +41,28 @@ body {
   height: 100%;
 }
 
+.contact {
+  position: absolute;
+  top: 2em;
+  right: 4em;
+  color: white;
+  font-size: .6em;
+  letter-spacing: 2px;
+  opacity: .8;
+  z-index: 5;
+}
+
+.email {
+  position: absolute;
+  right: 5em;
+}
+
+
+.contact a {
+  color: white;
+  text-decoration: none;
+}
+
 @media only screen and (min-width: tablet) {
   .links {
     flex-direction: row;
